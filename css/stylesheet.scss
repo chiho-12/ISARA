@@ -1,0 +1,2229 @@
+@import "reset.scss"; 
+// =======================================================
+// # mixins
+// =======================================================
+$breakpoints: (
+//キー 値    
+    'sm': 'screen and (max-width: 767px)',
+    'mm': 'screen and (min-width: 768px) and (max-width: 1190px)',
+    'md': 'screen and (min-width: 1191px)',
+) !default;
+
+@mixin mq($breakpoint: md) {
+  //map-get(マップ型変数, キー)で値を取得    
+    @media #{map-get($breakpoints, $breakpoint)} { 
+      @content;
+    }  
+  }
+
+body {
+
+// =======================================================
+// # header
+// =======================================================
+header {
+  width: 100%;
+  background: $white;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  .header_area {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    width: 98%;
+    @include mq(md) {
+      padding: 10px 20px;
+      width: 1170px;
+    }
+  
+  .header_left {
+   display: flex;
+   @include mq(sm) {
+    position: relative;
+   }
+   & img {
+    order: 1;
+    width: 130px;
+    height: 45px;
+    margin: 5px 5px 0 0;
+    @include mq(mm) {
+      width: 120px;
+      margin-top: 15px;
+    }
+    @include mq(sm) {
+      position: absolute;
+      top: 20px;
+      width: 100px;
+      height: 30px;
+    }
+   }
+   & p {
+    order: 2;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    @include mq(mm) {
+     font-size: 12px;
+     margin-top: 35px;
+     letter-spacing: 00.05em;
+    }
+    @include mq(sm) {
+      margin-top: 10px;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 0px;
+    }
+   }
+  }
+  
+  .header_right {
+    margin-top: 10px;
+    @include mq(mm) {
+     margin-top: 20px;
+    }
+    @include mq(sm) {
+     height: 45px;  
+     width: 80px;    
+    }
+    .contact {
+     background: $btn_color;
+     display: block;
+     color: $white;
+     margin: 0 auto;
+     & a {
+      color: $white;
+     }
+    }
+    .contact_pc {
+     font-weight: none;
+     font-size: 12px;
+     padding: 12px 42px;
+     border-radius: 30px;
+     text-decoration: none;
+     @include mq(mm) {
+      font-size: 11px;
+      padding: 12px 35px;
+     }
+     @include mq(sm) {
+      display: none;
+     }
+     &:hover {
+      background-color: $btn_color_hover;
+      transition: 0.5s;
+     }
+    }
+    .contact_sp {
+     height: 100%;
+     text-align: center;
+     position: absolute;
+     right: 0px;
+     top: 0;
+     padding: 9px 11px;
+      & img {
+       width: 20px;
+      }
+      & a {
+       display: block;
+       font-size: 12px;
+       padding-top: 5px;
+      }
+     @include mq(md) {
+       display: none;
+     }
+     @include mq(mm) {
+       display: none;
+     }
+    }
+  }
+ }
+}
+
+// <section-1>
+.topcontent {
+  width: 100%;
+  padding: 130px 0 100px;
+  text-align: center;
+  background-image: url("../img/main.jpg");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: table;
+  @include mq(mm) {
+    background-size: 1190px;
+  }
+  @include mq(sm) {
+    background-image: url("../img/mainsp.jpg");
+    background-position: center center;
+    background-size: cover;
+    padding: 0 0 20px;
+  }
+  &_inner {
+    @include mq(sm) {
+      margin-top: 100px;
+    }
+    & h1 {
+       font-size: 24px;
+       font-weight: bold;
+       line-height: 2;
+       letter-spacing: 0.05em;
+       @include mq(mm) {
+        font-size: 22px;
+       }
+       @include mq(sm) {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 0;
+        margin: 0;
+        line-height: 1.6;
+       }
+    }
+    & img {
+       width: 300px;
+       padding-bottom: 30px;  
+       @include mq(sm) {
+        padding: 10px 0 20px;
+        width: 350px;
+       }
+    }
+    & p {
+       font-weight: bold;
+       font-size: 18px;
+       line-height: 1.5;
+       letter-spacing: 0.05em;
+       color: rgb(51,51,51);
+       @include mq(mm) {
+        font-size: 17px;
+        line-height: 1;
+        margin-top: 40px;
+       }
+       @include mq(sm) {
+        font-size: 15px;
+        padding: 5px;
+        line-height: 1;
+        font-weight: bold;
+       }
+    }
+  }
+}
+
+// <section-2>
+.event_area {
+  text-align: center;
+  background: $main_color;
+  width: 100%;
+  padding: 20px 20px 40px;
+  .event_heading {
+   & h2 {
+      color: $white;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      line-height: 2;
+      margin: 0px;
+      @include mq(mm) {
+       font-size: 16px;
+      }
+      @include mq(sm) {
+       font-size: 14px;
+      }
+    }
+    & span {
+      background: $white;
+      color:  rgb(223, 68, 68);
+      font-weight: bold;
+      font-size: 20px;
+      padding: 0 5px;
+      border-radius: 2px;
+       @include mq(mm) {
+        font-size: 14px;
+      }
+      @include mq(sm) {
+        font-size: 14px;
+        padding: 2px;
+        border-radius: 4px;
+        line-height: 1;
+      }
+    }
+  }
+  .contact {
+    display: block;
+    margin: 20px auto;
+    color: $white;
+    font-weight: none;
+    text-decoration: none;
+    font-size: 30px;
+    width: 85%;
+    background: $btn_color;
+    padding: 30px 50px;
+    border-radius: 50px;
+    @include mq(mm) {
+      margin: 15px auto;
+      font-size: 18px;
+      padding: 25px 50px;
+    }
+    @include mq(sm) {
+      margin: 20px auto;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 20px 50px;
+    }
+    &:hover {
+      background-color: $btn_color_hover;
+      transition: 0.5s;
+    }
+    & span {
+      @include mq(sm) {
+        display: block;
+      }
+    }
+  }
+  .reception {
+    padding-top: 50px;
+    font-size: 22px;
+    color: $white;
+    line-height: 2.5;
+    @include mq(mm) {
+    padding-top: 15px;
+    font-size: 18px;
+    }
+    @include mq(sm) {
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 0px;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    & p {
+      margin-bottom: 20px;
+    }
+     & span {
+        display: block;
+      }
+    }
+   }
+   .sns_icons {
+    display: flex;
+    justify-content: center;
+  
+    & a {
+      display: block;
+      margin-left: 5px;
+      color: $white;
+      text-decoration: none;
+      font-size: 12px;
+      padding: 1px 7px;
+      border-radius: 3px;
+    }
+  
+    .twitter {
+      background: #1C96E0;
+    }
+    .facebook {
+      background: #1A77F2;
+    }
+    .share {
+      background: #1A77F2;
+    }
+  }
+ }
+
+// <section-3>
+.narrative {
+  text-align: center;
+  padding: 40px 0 120px;
+  letter-spacing: 0.05em;
+  background-image: url("../img/introbottom.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  @include mq(sm) {
+  padding: 30px 0;
+  background-size: contain;
+  background-position: center bottom;
+  }
+ .narrative_heading {
+   margin: 10px auto 30px;
+   padding: 15px 0px;
+   max-width: calc(100% - 40px);
+   width: 860px;
+   box-sizing: border-box;
+   position: relative;
+   @include mq(sm) {
+     padding: 0px;
+     & span {
+       display: block;
+     }
+   }
+  & h2 {
+   font-size: 28px;
+   font-weight: bold;
+   z-index: 1;
+   @include mq(mm) {
+    font-size: 24px;
+   }
+   @include mq(sm) {
+     font-size: 18px;
+     line-height: 2.5;
+    }
+   }
+   &::before, &::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    box-sizing: border-box;
+    @include mq(sm) {
+      width: 30px;
+      height: 30px;
+    }
+   }
+   &::before {
+    top: 0px;
+    left: 0px;
+    border-top: 4px solid $main_color;
+    border-left: 4px solid $main_color;
+   }
+   &::after {
+    bottom: 0px;
+    right: 0px;
+    border-bottom: 4px solid $main_color;
+    border-right: 4px solid $main_color;
+  }
+ }
+ .narrative_contents {
+   margin: 0 auto;
+   padding: 20px;
+   & li {
+     margin-bottom: 40px;
+     & p {
+      text-align: center;
+      font-size: 20px;
+      color: #333333;
+      line-height: 1;
+      @include mq(mm) {
+      font-size: 16px;
+      }
+      @include mq(sm) {
+        font-size: 15px;
+        margin: 0px;
+        line-height: 1.5;
+        & span {
+          display: block;
+        }
+      }
+     }
+     .point {
+       font-weight: bold;
+       background: linear-gradient(transparent 70%,  $main_color 70%);
+     }
+    }
+  }
+}
+
+// section-4
+.skill_about {
+  text-align: center;
+  background-color: $sub_color;
+  position: relative;
+  padding: 0 0 40px;
+  .about_icon {
+     color: $white;
+     background: $main_color;
+     display: inline-block;
+     border-radius: 50px;
+     width: 80px;
+     height: 80px;
+     position: absolute;
+     left: 50%;
+     transform: translate(-50%, -50%);
+      @include mq(sm) {
+       width: 60px;
+       height: 60px;
+      }
+     & h4 {
+        font-weight: normal;
+        font-size: 14px;
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        @include mq(sm) {
+          font-size: 13px;
+          top: 15px;
+          left: 5px;
+        }
+      }
+    }
+  .skill_heading {
+    padding: 100px 0 20px;
+    @include mq(md) {
+      padding-bottom: 45px;
+    }
+
+    & h2, p {
+      letter-spacing: 0.05em;
+      font-weight: bold;
+    }
+
+    & h2 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 0,5em;
+      line-height: 1.6;
+      margin: 0 auto;
+      position: relative;
+      padding-bottom: 50px;
+      width: 860px;
+      max-width: calc(100% - 40px);
+      @include mq(mm) {
+        font-size: 24px;
+      }
+      @include mq(sm) {
+        font-size: 18px;
+        line-height: 2;
+        padding: 0 0 20px;
+      }
+    }
+    & h2::before, h2::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      z-index: 1;
+      @include mq(sm) {
+       width: 30px;
+       height: 30px;
+      }
+    }
+    & h2::before {
+      top: -30px;
+      left: 0px;
+      border-top: 4px solid $main_color;
+      border-left: 4px solid $main_color;
+    }
+    & h2::after {
+      bottom: 30px;
+      right: 0px;
+      border-bottom: 4px solid $main_color;
+      border-right: 4px solid $main_color;
+      @include mq(sm) {
+        bottom: 0px;
+      }
+    }
+    & p {
+      font-size: 20px;
+      @include mq(mm) {
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 20px;
+      }
+      @include mq(sm) {
+        font-size: 16px;
+        padding-top: 10px;
+        & span {
+          display: block;
+        }
+      }
+    }
+  }
+  .skills_content {
+    width: 1170px;
+    height: auto;
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+    background-color: $white;
+    border: solid 2px $main_color;
+    & h4 {
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: 0.05em;
+      line-height: 1.6;
+      padding-top: 30px;
+      padding-bottom: 20px;
+      @include mq(mm) {
+       font-size: 16px;
+      }
+      @include mq(sm) {
+       padding: 10px;
+       font-size: 15px;
+       & span {
+         display: block;
+       }
+      }
+    }
+    &_inner {
+      margin: 0 auto;
+     & ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 0 20px;
+      .skill {
+        margin-right: 10px;
+        @include mq(sm) {
+          margin-right: 0px;
+        }
+       & img {
+        @include mq(sm) {
+          width: 40px;
+        }
+       }
+       & p {
+        font-size: 12px;
+        padding: 10px;
+        @include mq(sm) {
+         font-size: 10px;
+        }
+       }
+      }
+     }
+    }
+  }
+}
+
+// section-5
+.learning_steps {
+  width: 100%;
+  background-image: url(../img/aboutsecondbg.jpg);
+  background-size: cover;
+  padding: 60px;
+  text-align: center;
+  @include mq(mm) {
+    background-position-x: -500px;
+    margin: 0 auto;
+  }
+  @include mq(sm) {
+    padding: 30px;
+    background-image: url(../img/aboutsecondbgsp.jpg);
+    background-position: center center;
+  }
+  .learning_heading {
+    @include mq(sm) {
+      margin-bottom: 30px;
+    }
+    & h2,p {
+      color: #fff;
+      letter-spacing: 0.05em;
+      line-height: 1.8;
+      @include mq(sm) {
+        font-weight: bold;
+      }
+    }
+    & h2 {
+      margin-top: 0;
+      @include mq(mm) {
+        font-size: 24px;
+      }
+      @include mq(sm) {
+        font-size: 18px;
+      }
+    }
+    & p {
+      font-size: 20px;
+      @include mq(mm) {
+        font-size: 18px;
+      }
+      @include mq(sm) {
+        font-size: 13px;
+      }
+      .point {
+        color: $main_color;
+      }
+    }
+    @include mq(sm) {
+      & span {
+        display: block;
+      }
+    }
+  }
+  .step_content {
+    width: 100%;
+    @include mq(md) {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    }
+    .box {
+      background: #fff;
+      margin-left: 20px;
+      width: 450px;
+      height: 180px;
+      border-radius: 5px;
+      @include mq(mm) {
+        margin: 0 auto 20px;
+        width: 40%;
+        height: 170px;
+        padding: 25px;
+      }
+      @include mq (sm) {
+        margin: 0 auto 15px;
+        width: 99%;
+        height: 100px;
+        padding: 10px;
+      }
+      &_title {
+        background: $main_color;
+        border-radius: 5px;
+        color: $white;
+        font-size: 18px;
+        letter-spacing: 0.05em;
+        width: 300px;
+        margin: 30px auto;
+        @include mq (mm) {
+          font-size: 16px;
+          width: 85%;
+          margin: 0 auto 5px;
+        }
+        @include mq (sm) {
+         width: 85%;
+         font-size: 14px;
+         margin: 0 auto 5px;
+        }
+      }
+      & p {
+        color: black;
+        font-size: 16px;
+        @include mq (mm) {
+         font-size: 14px;
+         font-weight: bold;
+         margin-top: 20px;
+        }
+        @include mq (sm) {
+         font-size: 12px;
+         font-weight: bold;
+         margin: 0;
+         padding-top: 5px;
+        }
+      }
+    }
+  }
+}
+
+// section-6
+.aword {
+  background: #056EA9;
+  text-align: center;
+  padding: 50px;
+  @include mq(mm) {
+    padding: 30px;
+   }
+  @include mq(sm) {
+    padding: 15px;
+  }
+  &_heading {
+   & p {
+      color: $white;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      @include mq(mm) {
+       font-size: 16px;
+      }
+      @include mq(sm) {
+        font-size: 12px;
+        & span {
+          display: block;
+        }
+      }
+      .point {
+        color: $main_color;
+      }
+    }
+  }
+}
+
+// section-7
+.learn_about {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  margin:0 auto;
+  @include mq(sm) {
+    padding: 10px;
+  }
+  
+  h2,h3,p {
+    letter-spacing: 0.05em;
+  }
+
+  & h2 {
+    font-size: 28px;
+    font-weight: bold;
+    @include mq(mm) {
+      font-size: 24px;
+    }
+    @include mq(sm) {
+      font-size: 18px;
+      padding: 20px;
+    }
+
+   & span {
+      font-size: 16px;
+      @include mq(sm) {
+        font-size: 12px;
+      }
+    }
+  }
+  & h3 {
+     padding: 20px;
+     font-size: 20px;
+    @include mq(mm) {
+      font-size: 16px;
+    }
+    @include mq(sm) {
+      padding: 0px;
+      font-size: 16px;
+      line-height: 1.5;
+     & span {
+       display: block;
+     }
+    }
+  }
+  .teach_content {
+    padding: 0px;
+    @include mq(md) {
+      padding: 20px;
+    }
+  & img {
+      width: 180px;
+      margin-right: 30px;
+      @include mq(mm) {
+        width: 16%;
+      }
+      @include mq(sm) {
+        width: 16%;
+        margin-right: 10px;
+      }
+    }
+  }
+  & p {
+    font-size: 16px;
+    padding: 20px;
+    @include mq(mm) {
+    margin-top: 20px;
+    }
+    @include mq(sm) {
+     font-size: 12px;
+    }
+  }
+}
+
+// section-8
+.merit {
+  background: $sub_color;
+  text-align: center;
+  padding: 40px 20px 10px;
+
+  h2, h3, h4, p {
+    letter-spacing: 0.05em;
+  }
+  &_heading {
+    width: 1170px;
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+    & h2 {
+      font-size: 20px;
+      position: relative; 
+      @include mq(mm) {
+        font-size: 16px;
+      }
+      @include mq(sm) {
+        font-size: 13px;
+        font-weight: bold;
+        line-height: 1.5;
+        & span {
+          display: block;
+        }
+      }
+    }
+    & p {
+      font-size: 24px;
+      font-weight: bold;
+      @include mq(sm) {
+        font-size: 18px;
+      }
+    }
+  }
+  & h2::before, & h2::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    @include mq(sm) {
+      width: 30px;
+      height: 30px;
+    }
+   }
+  & h2::before {
+    top: -20px;
+    left: 10%;
+    border-top: 4px solid $main_color;
+    border-left: 4px solid $main_color;
+    @include mq(sm) {
+      left: -10px;
+    }
+  }
+  
+  & h2::after {
+    bottom: -50px;
+    right: 10%;
+    border-bottom: 4px solid $main_color;
+    border-right: 4px solid  $main_color;
+    @include mq(sm) {
+      right: -10px;
+    }
+  }
+  .merits_content {
+    display: block;
+    padding: 40px;
+    @include mq(md) {
+      display: flex;
+      justify-content: center;
+    }
+    @include mq(sm) {
+      padding: 20px 0;
+    }
+    .box {
+      margin-right: 30px;
+      text-align: left;
+      width: 33%;
+      margin: 0 auto;
+      @include mq(mm) {
+        width: 95%;
+        text-align: center;
+      }
+      @include mq(sm) {
+        width: 95%;
+      }
+      & img {
+        width: 350px;
+        height: 170px;
+        object-fit: cover;
+        margin: 0 auto;
+       @include mq(mm) {
+         width: 300px;
+        }
+       @include mq(sm) {
+         width: 100%;
+        }
+      }
+    & h3 {
+      color:  $main_color;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 10px auto;
+      @include mq(mm) {
+        font-size: 16px;
+        padding: 0;
+        margin-top: 10px;
+      }
+      @include mq(sm) {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+    p {
+       margin-top: 20px;
+       font-size: 16px;
+       line-height: 1.5;
+       color: #333333;
+       @include mq(mm) {
+         font-size: 14px;
+         margin: 10px;
+         text-align: left;
+        }
+        @include mq(sm) {
+          font-size: 12px;
+          width: 95%;
+          margin: 0 auto 15px;
+        }
+      }
+    }
+  }
+  .support {
+    background: $white;
+    border: solid 2px $main_color;
+    width: 90%;
+    padding: 40px;
+    margin: 0 auto; 
+    @include mq(mm) {
+      width: 85%;
+    }
+    @include mq(sm) {
+      width: 98%;
+      padding: 30px;
+    }
+    h3, h4, p {
+      font-weight: 600;
+    }
+    & h3 {
+      color: $main_color;
+      font-size: 28px;
+      margin: 0;
+      padding: 10px;
+      @include mq(mm) {
+       font-size: 22px;
+      }
+      @include mq(sm) {
+        padding-top: 0;
+        font-size: 18px;
+      }
+    }
+    & h4 {
+      font-size: 20px;
+      // padding: 10px;
+      @include mq(mm) {
+      font-size: 16px;
+      }
+      @include mq(sm) {
+       font-size: 14px;
+       line-height: 1.5;
+       padding: 0;
+       & span {
+         display: block;
+       }
+      }
+    }
+    & p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333333;
+      @include mq(mm) {
+        font-size: 14px;
+      }
+      @include mq(sm) {
+        padding-top: 0;
+        font-size: 10px;
+      }
+    }
+  }
+  .bottom {
+   & p {
+     padding: 40px;
+     letter-spacing: 0.07em;
+     @include mq(mm) {
+      font-size: 12px;
+     }
+    @include mq(sm) {
+      padding: 10px;
+      font-size: 12px;
+      & span {
+        display: block;
+      }
+    }
+   }
+  }
+}
+
+// section-9
+.member_about {
+  width: 100%;
+  background-image: url("../img/teacherbg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  padding: 30px;
+  @include mq(mm) {
+    margin: 0 auto;
+    padding: 50px 50px 20px;
+  }
+  @include mq(sm) {
+    background-image: url("../img/teacherbgsp.jpg");
+    
+  }
+  .member_heding {
+    @include mq(sm) {
+      padding: 20px;
+    }
+    & h2, & p {
+      letter-spacing: 0.05em;
+      color: $white;
+    }
+    & h2 {
+      margin: 0;
+      padding: 50px;
+      @include mq(mm) {
+        margin: 50px 0 10px;
+        font-size: 24px;
+        padding: 0;
+      }
+      @include mq(sm) {
+        font-size: 18px;
+        padding: 10px;
+      }
+    }
+    & p {
+      font-size: 16px;
+      @include mq(sm) {
+        font-size: 12px;
+        padding: 20px;
+        & span {
+          display: block;
+        }
+      }
+    }
+  }
+ .members {
+    @include mq(md) {
+      display: flex;
+      justify-content: center;
+      padding-top: 200px;
+    }
+     @include mq(mm) {
+       padding-top: 0px;
+    }
+     @include mq(sm) {
+      padding-top: 90px;
+    }
+    .member_content {
+      border: solid 3px $white;
+      position: relative;
+      width: 30%;
+      color: $white;
+      margin: 0 15px;
+      @include mq(mm) {
+        margin: 200px auto 50px;
+        width: 98%;
+      }
+      @include mq(sm) {
+        width: 100%;
+        margin: 0 auto 110px;
+      }
+      & img {
+        position: absolute;
+        border-radius: 50%;
+        top: -170px;
+        left: 25%;
+        @include mq(mm) {
+         top: -70px;
+         left: 50%;
+         transform: translate(-50%, -50%);
+        }
+        @include mq(sm) {
+         width: 120px; 
+         top: -30px;
+         left: 50%;
+         transform: translate(-50%, -50%);
+        }
+      }
+      .name {
+        padding: 30px 30px 0;
+        line-height: 2.5;
+        text-align: center;
+        opacity: 0.7;
+        @include mq(sm) {
+        font-size: 12px;
+        }
+      }
+      & p {
+        text-align: left;
+        padding: 40px;
+        opacity: 0.7;
+        font-size: 16px;
+        @include mq(mm) {
+        text-align: center;
+        padding: 0 20px 10px;
+        font-size: 14px;
+        }
+        @include mq(sm) {
+          text-align: left;
+          padding: 0 15px 10px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+// section-10
+.question {
+  background: $main_color;
+  color: $white;
+  text-align: center;
+  position: relative;
+  // 矢印部分
+  &::after {
+    border-top: 30px solid  $main_color;    
+    border-left: 30px solid transparent;   
+    border-right: 30px solid transparent; 
+    top: 40px;                          
+    transform: translate(-50%, -50%);                     
+    content: "";                     
+    position: absolute;
+    position: relative;
+  @include mq(mm) {
+   border-top: 25px solid  $main_color;    
+   border-left: 25px solid transparent;   
+   border-right: 25px solid transparent; 
+  }
+  @include mq(sm) {
+    top: 30px;
+    border-top: 20px solid  $main_color;    
+    border-left: 20px solid transparent;   
+    border-right: 20px solid transparent; 
+  }    
+ }
+  .question-logo {
+    background: $white;
+    color: $main_color;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    position: relative;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include mq(sm) {
+      width: 60px;
+      height: 60px;
+    }
+    & p {
+      position: absolute;
+      top: 30px;
+      left: 25px;
+      @include mq(sm) {
+      top: 20px;
+      left: 14px;
+      }
+    }
+  }
+  & h2 {
+    margin-top: 0;
+    max-width: calc(100% - 40px);
+    padding: 120px 0 0;
+    @include mq(mm) {
+      font-size: 18px;
+      line-height: 2.5;
+    }
+    @include mq(sm) {
+     font-size: 14px;
+     font-weight: bold;
+     line-height: 2.5;
+    }
+  }
+
+  & h2::before, & h2::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    @include mq(sm) {
+    width: 30px;
+    height: 30px;
+    }
+  }
+  & h2::before {
+    top: 110px;
+    left: 220px;
+    border-top: 4px solid $white;
+    border-left: 4px solid $white;
+    @include mq(mm) {
+      top: 120px;
+      left: 50px;
+    }
+    @include mq(sm) {
+     top: 80px;
+     left: 3%;
+    }
+  }
+  & h2::after {
+    bottom: 30px;
+    right: 220px;
+    border-bottom: 4px solid $white;
+    border-right: 4px solid $white;
+    @include mq(mm) {
+     bottom: 40px;
+     right: 50px;
+    }
+    @include mq(sm) {
+     bottom: 30px;
+     right: 3%;
+    }
+  }
+}
+
+// section-11
+.thirdparty {
+  width: 100%;
+  margin: 0 auto;
+  @include mq(sm) {
+    padding: 5px 10px;
+  }
+  &_heading {
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    @include mq(sm) {
+      padding: 0px;
+    }
+    & h2 {
+      font-size: 28px;
+      @include mq(sm) {
+      font-size: 18px;
+      font-weight: bold;
+      }
+    }
+    & h3 {
+      font-size: 16px;
+      padding: 10px;
+      @include mq(sm) {
+        font-size: 12px;
+      }
+    }
+   }
+   & p {
+     text-align: center;
+     font-size: 12px;
+     letter-spacing: 0.05;
+     font-weight: normal;
+     @include mq(sm) {
+      & span {
+        display: block;
+      }
+     }
+    }
+  .impressions_content {
+    max-width: calc(100% - 40px);
+    .box {
+      margin: 0 auto 40px;
+      display: flex;
+      width: 750px;
+      @include mq(sm) {
+      padding: 10px 0;
+      width: 99%;
+    }
+    &_img {
+      .image {
+        width: 600px;
+        border: 2px solid $main_color;
+        vertical-align: middle;
+      }
+    }
+
+    .comment {
+      text-align: left;
+      color: #777;
+      font-style: italic;
+      margin: 10px 30px;
+      @include mq(sm) {
+        margin-left:10px;
+        margin-right: 0;
+      }
+      & h3 {
+        font-size: 18px;
+        @include mq(sm) {
+          margin: 0;
+          line-height: 1.5;
+        }
+      }
+      & p {
+        text-decoration: underline;
+        font-size: 15px;
+        @include mq(sm) {
+          margin: 10px 0;
+        }
+      }
+    }
+   }
+  }
+}
+
+// section-12
+.advance_task {
+  width: 100%;
+  background-image: url(../img/classbg.jpg);
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  padding: 20px;
+  @include mq(mm) {
+    margin: 0 auto;
+  }
+  @include mq(sm) {
+   background-image: url(../img/classbgsp.jpg);
+  }
+  .task_heading {
+    text-align: center;
+    padding: 40px;
+    color: $white;
+    @include mq(mm) {
+    & h2 {
+     font-size: 24px;
+    }
+  }
+   @include mq(sm) {
+    padding: 20px;
+     & h2 {
+       font-size: 18px;
+       padding: 10px;
+     }
+     & p {
+       font-size: 12px;
+     }
+   }
+  }
+  .list_container {
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    @include mq(md) {
+      display: flex;
+      justify-content: center;
+    }
+    .list {
+      margin: 0 15px;
+      width: 380px;
+      @include mq(mm) {
+        margin: 0 auto 10px;
+        width: 60%;
+      }
+      @include mq(sm) {
+        margin: 0 auto;
+        width: 98%;
+        margin-bottom: 15px;
+      }
+      & ul {
+        padding: 0;
+        background-color: $white;
+        border: 2px solid #056EA9;
+        border-radius: 5px;
+        & li {
+          list-style: none;
+          font-size: 16px;
+          padding: 10px;
+          border-bottom: 1px dotted #e5e5e5;
+          @include mq(mm) {
+            font-size: 14px;
+            padding: 10px;
+          }
+          @include mq(sm) {
+            font-size: 12px;
+            padding: 10px;
+          }
+        }
+        li:first-child {
+          background-color: #056EA9;
+          padding: 20px 10px;
+          margin-top: 0;
+          font-size: 20px;
+          color: #fff;
+          text-align: center;
+          @include mq(mm) {
+            font-size: 16px;
+            padding: 15px;
+          }
+          @include mq(sm) {
+           font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//  section-13
+ .support_when {
+   background: #056EA9;
+   color: #fff;
+   padding: 40px;
+   @include mq(sm) {
+     padding: 20px;
+   }
+   & h3 {
+     margin: 0;
+     font-size: 21px;
+     text-align: center;
+     line-height: 1.5;
+     @include mq(mm) {
+      font-size: 16px;
+    }
+     @include mq(sm) {
+       font-size: 15px;
+       font-weight: bold;
+     }
+   }
+}
+
+ // section-14
+.learning_flow {
+  width: 100%;
+  padding: 40px 0;
+  @include mq(sm) {
+  padding: 30px 0 40px;
+  }
+  .learning_heding {
+    text-align: center;
+    margin: 40px 0 20px;
+    @include mq(mm) {
+    margin: 20px 0 10px;
+    }
+    @include mq(sm) {
+      margin: 0;
+      padding: 0 0 20px;
+    }
+    & h2 {
+      font-size: 28px;
+      font-weight: bold;
+      @include mq(mm) {
+        font-size: 24px;
+      }
+      @include mq(sm) {
+      font-size: 18px;
+      }
+    }
+    .pc-style {
+      & img {
+        margin: 40px;
+      @include mq(mm) {
+        width: 90%;
+      }
+      }
+      @include mq(sm) {
+        display: none;
+      }
+    }
+  }
+  @include mq(sm) {
+    .pc-style {
+      display: none;
+    }
+  }
+
+  .flow_box {
+    margin: 0 auto;
+    padding: 10px 35px;
+    border-radius: 10px;
+    display: flex;
+    background: #FEF5E0;
+    max-width: calc(100% - 40px);
+    @include mq(mm) {
+      width: 90%;
+    }
+    @include mq(sm) {
+      padding: 0;
+      margin-bottom: 5px;
+    }
+     
+    & h3 {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1.5;
+      }
+
+    @include mq(md) {
+      .tab-style {
+        display: none;
+      }
+    }
+    @include mq(mm) {
+      .tab-style {
+        display: none;
+      }
+    }
+    @include mq(sm) {
+      .pc-style {
+        display: none;
+      }
+    }
+    
+    .left-flow {
+        text-align: center;
+        padding: 20px 10px;
+        width: 20%;
+    }
+    .right-flow {
+      padding: 20px;
+      width: 80%;
+      & h3 {
+        font-size: 14px;
+        margin: 20px 0;
+      }
+      & p {
+        font-size: 12px;
+      }
+    }
+
+    .tab-style {
+      width: 100%;
+      max-width: calc(100% - 5px);
+      position: relative;
+      background: #FEF5E0;
+      border-radius: 3px;
+      @include mq(mm) {
+        display: none;
+      }
+      @include mq(md) {
+        display: none;
+      }
+      h3 {
+        font-size: 15px;
+        margin: 0;
+        padding: 10px 15px;
+      }
+      & img {
+        width: 35px;
+        height: 35px;
+        margin-right: 15px;
+      }
+      .accordion-title {
+        &::after {
+          content: "";
+          position: absolute;
+          top: 20px;
+          left: 96%;
+          transition: all 0.2s ease-in-out;
+          display: block;
+          width: 10px;
+          height: 10px;
+          border-bottom: solid 4px black;
+          border-left: solid 4px black;
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+        &.open::after {
+          -webkit-transform: rotate(-225deg);
+          transform: rotate(-225deg);
+          top: 15%;
+        }
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+      .accordion-content {
+        @include mq(sm) {
+          display:none;
+        }
+        background: #FEF5E0;
+        max-width: calc(100% - 20px);
+        margin: 0 auto;
+        padding: 0px;
+        & h4 {
+            margin:  10px 0;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 2;
+        }
+        & p {
+          font-size: 12px;
+        }
+      }
+    
+    }
+   }
+   .line {
+     text-align: center;
+     & img {
+      width: 65%;
+     }
+   }
+}
+
+// section-15
+.why_bankoku {
+  width: 100%;
+  color: $white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../img/bangkokbg.jpg);
+  background-position: center center;
+  @include mq(sm) {
+  background-image: url("../img/bangkokbgsp.jpg");
+  }
+  .bankoku_about {
+    padding: 40px;
+    @include mq(sm) {
+    padding: 10px;
+    }
+  & h2 {
+    margin-top: 0;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    @include mq(sm) {
+    text-align: center;
+    }
+  }
+  & p {
+    font-size: 11px;
+    padding: 0 20px;
+    @include mq(sm) {
+    padding: 0 20px;
+    }
+  }
+  .bankoku_list {
+    & p {
+      font-size: 14px;
+      font-weight: bold;
+      @include mq(sm) {
+      font-size: 12px;
+      margin-top: 15px;
+      }
+    }
+  }
+  & h3 {
+    font-size: 18px;
+    padding: 10px 20px;
+    font-weight: bold;
+    @include mq(sm) {
+    font-size: 13px;
+    }
+  }
+ }
+}
+
+// section-16
+.gift {
+  background: #F7C23C;
+  padding: 20px 40px 40px;
+  text-align: center;
+  @include mq(sm) {
+    padding: 20px;
+  }
+  &_heading {
+    padding: 40px 0 80px;
+    @include mq(sm) {
+      padding: 10px 0 80px;
+    }
+    & h2 {
+      margin-bottom: 40px;
+      font-size: 28px;
+      font-weight: bold;
+      @include mq(mm) {
+        font-size: 24px;
+      }
+      @include mq(sm) {
+      font-size: 18px;
+      }
+    } 
+    & p {
+      font-size: 18px;
+      @include mq(mm) {
+        font-size: 14px;
+      }
+      @include mq(sm) {
+       font-size: 12px;
+       & span {
+         display: block;
+       }
+     }
+     .point {
+      color: $white;
+      }
+    }
+  }
+  &_box {
+    border: 2px solid $white;
+    padding: 40px;
+    position: relative;
+    @include mq(sm) {
+      padding: 0px 30px;
+    }
+    .box_title {
+      position: absolute;
+      top: -35px;
+      display: inline-block;
+      background: #F7C23C;
+      font-size: 28px;
+      font-weight: bold;
+      padding: 0 20px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include mq(mm) {
+        font-size: 24px;
+      }
+      @include mq(sm) {
+        font-size: 18px;
+        padding: 0px;
+        width: 250px;
+        & span {
+          display: block;
+        }
+      }
+    }
+    .box_content {
+      max-width: calc(100%-50px);
+      @include mq(md) {
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      }
+      @include mq(sm) {
+       padding: 0px;
+      }
+      .box_list_pc {
+        width: 250px;
+        height: 250px;
+        background: $white;
+        border-radius: 50%;
+        padding: 30px 10px;
+        @include mq(sm) {
+          display: none;
+        }
+        @include mq(mm) {
+          margin: 20px auto;
+        }
+        & h3 {
+          color: $main_color;
+        }
+        & p {
+          padding-top: 10px;
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+      .box_list_tab { 
+        display: flex;
+        margin: 15px 0;
+        overflow: hidden;
+        @include mq(md) {
+        display: none;
+        }
+        @include mq(mm) {
+          display: none;
+        }
+        .left_clrcle {
+          width: 30%;
+          flex: start;
+          & h3 {
+          background: $white;
+          border-radius: 50%;
+          width: 60px;
+          height: 60px;
+          font-size: 12px;
+          line-height: 60px;
+          }
+        }
+        & h3 {
+        font-size: 11px;
+        color: $main_color;
+        }
+      .right_contents {
+        color: $white;
+        font-size: 12px;
+        padding: 30px 0;
+      }
+      }
+    }
+  }
+}
+
+// section-17
+.purpose {
+  background-image: url(../img/specialdetail.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: $white;
+  text-align: center;
+  padding: 60px;
+  @include mq(sm) {
+    background-image: url(../img/specialdetailsd.jpg);
+    padding: 45px;
+  }
+  &_title {
+    & h2 {
+      margin: 0 0 30px;
+      font-size: 28px;
+      @include mq(mm) {
+        font-size: 24px;
+      }
+      @include mq(sm) {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+    & p {
+      font-size: 20px;
+      margin: 20px;
+      @include mq(mm) {
+        font-size: 16px;
+      }
+      @include mq(sm) {
+      font-size: 12px;
+      margin: 0;
+      padding: 20px;
+       & span {
+         display: block;
+        }
+      }
+    }
+  }
+  &_about {
+    padding: 20px;
+    & h2 {
+      font-size: 28px;
+      font-weight: bold;
+      position: relative;
+      max-width: calc(100% - 40px);
+      width: 860px;
+      margin: 0 auto;
+      @include mq(mm) {
+        font-size: 24px;
+      }
+      @include mq(sm) {
+        font-size: 18px;
+        line-height: 2;
+        width: 95%;
+        & span {
+          display: block;
+        }
+      }
+    }
+    & h2::before, & h2::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      z-index: 1;
+      @include mq(sm) {
+      width: 30px;
+      height: 30px;
+      }
+    }
+    & h2::before {
+      top: -20px;
+      left: 0;
+      border-top: 4px solid $white;
+      border-left: 4px solid $white;
+    }
+    
+    & h2::after {
+      bottom: -20px;
+      right: 0px;
+      border-bottom: 4px solid $white;
+      border-right: 4px solid $white;
+    }
+  }
+  & p {
+    font-size: 20px;
+    padding: 20px;
+    @include mq(mm) {
+      padding: 10px;
+      font-size: 16px;
+    }
+    @include mq(sm) {
+      font-size: 12px;
+      & span {
+        display: block;
+      }
+    }
+  }
+}
+
+// section-18
+.message_about {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  @include mq(sm) {
+    padding: 25px 10px;
+  }
+  @include mq(mm) {
+    padding: 25px 10px;
+  }
+  .message_heading {
+    & h2 {
+      font-weight: 600;
+      font-size: 24px;
+      margin: 50px;
+      @include mq(sm) {
+       margin: 0;
+       font-size: 18px;
+       padding: 20px;
+      }
+    }
+    & h3 {
+      font-weight: 600;
+      font-size: 16px;
+      @include mq(sm) {
+        font-size: 15px;
+        line-height: 1.5;
+        & span {
+          display: block;
+        }
+      }
+    }
+  }
+  .message_content {
+    display: flex;
+    padding: 40px 20px;
+    max-width: 1028px;
+    margin: 0 auto;
+    @include mq(mm) {
+    display: block;
+    }
+    @include mq(sm) {
+    display: block;
+    padding: 20px 0;
+    }
+  .message_left {
+    img {
+      width: 230px;
+      @include mq(mm) {
+        width: 90%;
+      }
+      @include mq(sm) {
+        width: 99%;
+        margin: 10px 0;
+      }
+    }
+  }
+  .message_right {
+    width: 75%;
+    text-align: left;
+    padding: 0 10px;
+    @include mq(mm) {
+      width: 100%;
+      padding: 30px 10px;
+    }
+    @include mq(sm) {
+      width: 100%;
+    }
+    & p {
+      font-weight: normal;
+      font-size: 14px;
+    }
+    .message_list {
+      padding: 20px 0;
+    }
+  }
+ }
+}
+
+
+// section-19
+.form {
+  width: 100%;
+  background: $main_color;
+  text-align: center;
+  padding: 40px;
+  margin: 0 auto;
+  @include mq(sm) {
+    padding: 30px 0;
+  }
+  &_title {
+    padding: 10px;
+    @include mq(sm) {
+     padding: 20px;
+     }
+    & h2 {
+      font-size: 24px;
+      font-weight: bold;
+      @include mq(sm) {
+      font-size: 18px;
+      margin-bottom: 25px;
+     }
+    }
+    & p {
+      padding: 10px;
+      @include mq(sm) {
+      font-size: 12px;
+      padding: 0;
+      }
+    }
+  }
+  &_box {
+    text-align: center;
+    margin: 0 auto;
+    width: 860px;
+    @include mq(mm) {
+     width: 75%;
+    }
+    @include mq(sm) {
+     width: 95%;
+    }
+    & input {
+     width: 100%;
+     margin-bottom: 25px;
+     border: 0px;
+     border-radius: 5px;
+     padding: 15px;
+    }
+    & textarea {
+     width: 100%;
+     border: 0px;
+     border-radius: 5px;
+     padding: 10px;
+     margin-bottom: 25px;
+    }
+   .OF_submit_btn1 {
+     width: 100%;
+     background-color: $btn_color;
+     color: $white;
+     padding: 10px 80px;
+     border-radius: 50px;
+     font-size: 23px;
+     font-weight: 600;
+     border: none;
+      @include mq(sm) {
+       width: 95%;
+       margin: 15px 0 0;
+      }
+    }
+  }
+}
+
+
+// section-20
+.common-questions {
+  width: 100%;
+  text-align: center;
+  padding: 40px;
+  @include mq(sm) {
+  padding: 20px 5px;
+  }
+  .question-title{
+   padding: 15px;
+   @include mq(sm) {
+   padding: 10px 0;
+   }
+   & h2 {
+     font-size: 26px;
+     font-weight: bold;
+     @include mq(sm) {
+      font-size: 18px;
+      margin: 15px;
+     }
+   }
+  }
+  .accordion-container {
+     text-align: left;
+     padding: 20px;
+     position: relative;
+     @include mq(sm) {
+      padding: 0;
+     }
+     .accordion-title {
+      border: 1px solid #E5E5E5;
+      width: 95%;
+      padding: 20px 20px;
+      border-radius: 5px;
+      position: relative;
+      margin-bottom: 5px;
+      @include mq(sm) {
+        padding: 10px;
+        width: 98%;
+        margin: 5px;
+      }
+      & h4 {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0px;
+        width: 90%;
+        @include mq(sm) {
+        font-size: 15px;
+        }
+      }
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      transition: all 0.2s ease-in-out;
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-top: solid 4px #E5E5E5;
+      border-right: solid 4px #E5E5E5;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      @include mq(sm) {
+        right: 10px;
+        top: 10px;
+      }
+    }
+    .fa-question-circle-o {
+      color: #056EA9;
+    }
+    &.open:after {
+      -webkit-transform: rotate(-225deg);
+      transform: rotate(-225deg);
+      top: 45%;
+    }
+  }
+    .accordion-content {
+    padding: 20px;
+    font-weight: bold;
+    display: none;
+    }
+  }
+}
+
+footer {
+  background: #ECECEC;
+  width: 100%;
+  text-align: center;
+  .footer-container {
+    padding: 40px 0 20px;
+    & p {
+      font-size: 10px;
+      margin: 0;
+      & span {
+        color: #4785BC;
+      }
+    }
+    .sns-icons {
+      display: flex;
+      justify-content: center;
+      padding: 5px;
+      margin-bottom: 40px;
+      a {
+        display: block;
+        margin-left: 5px;
+        color: $white;
+        text-decoration: none;
+        font-size: 12px;
+        padding: 1px 7px;
+        border-radius: 3px;
+      }
+      
+      .twitter {
+        background: #1C96E0;
+      }
+      .facebook {
+        background: #1A77F2;
+      }
+      .share {
+        background: #1A77F2;
+      }
+    }
+  }
+}
+
+.scroll-button {
+  & a {
+    display: block;
+    background: #ECECEC;
+    position: fixed;
+    z-index: 999;
+    right: 50px;
+    bottom: 100px;
+    color: black;
+    font-size: 30px;
+    padding: 10px 20px;
+    @include mq(sm) {
+      right: 10px;
+      bottom: 20px;
+      padding: 0px 10px;
+      .fa-chevron-up {
+       font-size: 16px;
+      }
+    }
+  }
+ }
+}

@@ -1,0 +1,28 @@
+// =======================================================
+// # colors
+// =======================================================
+$main_color: #EAB94D;
+$sub_color: #FEF5E0;
+$btn_color: rgb(218,107,100);
+$btn_color_hover: rgb(223, 68, 68);
+$white: #fff;
+
+body {
+  box-sizing: border-box;
+  width: 100%;
+  line-height: 1.6;
+  letter-spacing: 1.5px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
