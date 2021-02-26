@@ -1303,9 +1303,21 @@ header {
     }
     &_img {
       .image {
-        width: 600px;
         border: 2px solid $main_color;
         vertical-align: middle;
+        @include mq(sm) {
+          width: 80%;
+        }
+      }
+      .second {
+        @include mq(sm) {
+          width :98%;
+        }
+      }
+      .third {
+        @include mq(sm) {
+          width :70%;
+        }
       }
     }
 

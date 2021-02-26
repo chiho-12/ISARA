@@ -15,7 +15,6 @@ a {
 }
 
 img {
-  max-width: 100%;
   height: auto;
 }
 
@@ -1825,9 +1824,26 @@ body .thirdparty .impressions_content .box {
 }
 
 body .thirdparty .impressions_content .box_img .image {
-  width: 600px;
   border: 2px solid #EAB94D;
   vertical-align: middle;
+}
+
+@media screen and (max-width: 767px) {
+  body .thirdparty .impressions_content .box_img .image {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  body .thirdparty .impressions_content .box_img .second {
+    width: 98%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  body .thirdparty .impressions_content .box_img .third {
+    width: 70%;
+  }
 }
 
 body .thirdparty .impressions_content .box .comment {
@@ -2885,53 +2901,53 @@ body .form_box .OF_submit_btn1 {
   }
 }
 
-body .common-questions {
+body .common_questions {
   width: 100%;
   text-align: center;
   padding: 40px;
 }
 
 @media screen and (max-width: 767px) {
-  body .common-questions {
+  body .common_questions {
     padding: 20px 5px;
   }
 }
 
-body .common-questions .question-title {
+body .common_questions .question_title {
   padding: 15px;
 }
 
 @media screen and (max-width: 767px) {
-  body .common-questions .question-title {
+  body .common_questions .question_title {
     padding: 10px 0;
   }
 }
 
-body .common-questions .question-title h2 {
+body .common_questions .question_title h2 {
   font-size: 26px;
   font-weight: bold;
 }
 
 @media screen and (max-width: 767px) {
-  body .common-questions .question-title h2 {
+  body .common_questions .question_title h2 {
     font-size: 18px;
     margin: 15px;
   }
 }
 
-body .common-questions .accordion-container {
+body .common_questions .accordion-container {
   text-align: left;
   padding: 20px;
   position: relative;
 }
 
 @media screen and (max-width: 767px) {
-  body .common-questions .accordion-container {
+  body .common_questions .accordion-container {
     padding: 0;
   }
 }
 
-body .common-questions .accordion-container .accordion-title {
+body .common_questions .accordion-container .accordion-title {
   border: 1px solid #E5E5E5;
   width: 95%;
   padding: 20px 20px;
@@ -2941,14 +2957,14 @@ body .common-questions .accordion-container .accordion-title {
 }
 
 @media screen and (max-width: 767px) {
-  body .common-questions .accordion-container .accordion-title {
+  body .common_questions .accordion-container .accordion-title {
     padding: 10px;
     width: 98%;
     margin: 5px;
   }
 }
 
-body .common-questions .accordion-container .accordion-title h4 {
+body .common_questions .accordion-container .accordion-title h4 {
   font-size: 18px;
   font-weight: bold;
   margin: 0px;
@@ -2956,17 +2972,17 @@ body .common-questions .accordion-container .accordion-title h4 {
 }
 
 @media screen and (max-width: 767px) {
-  body .common-questions .accordion-container .accordion-title h4 {
+  body .common_questions .accordion-container .accordion-title h4 {
     font-size: 15px;
   }
 }
 
-body .common-questions .accordion-container .accordion-title:hover {
+body .common_questions .accordion-container .accordion-title:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-body .common-questions .accordion-container .accordion-title::after {
+body .common_questions .accordion-container .accordion-title::after {
   content: "";
   position: absolute;
   right: 30px;
@@ -2983,23 +2999,23 @@ body .common-questions .accordion-container .accordion-title::after {
 }
 
 @media screen and (max-width: 767px) {
-  body .common-questions .accordion-container .accordion-title::after {
+  body .common_questions .accordion-container .accordion-title::after {
     right: 10px;
     top: 10px;
   }
 }
 
-body .common-questions .accordion-container .accordion-title .fa-question-circle-o {
+body .common_questions .accordion-container .accordion-title .fa-question-circle-o {
   color: #056EA9;
 }
 
-body .common-questions .accordion-container .accordion-title.open:after {
+body .common_questions .accordion-container .accordion-title.open:after {
   -webkit-transform: rotate(-225deg);
   transform: rotate(-225deg);
   top: 45%;
 }
 
-body .common-questions .accordion-container .accordion-content {
+body .common_questions .accordion-container .accordion-content {
   padding: 20px;
   font-weight: bold;
   display: none;
