@@ -2076,14 +2076,14 @@ header {
 
 
 // section-20
-.common-questions {
+.common_questions {
   width: 100%;
   text-align: center;
   padding: 40px;
   @include mq(sm) {
   padding: 20px 5px;
   }
-  .question-title{
+  .question_title{
    padding: 15px;
    @include mq(sm) {
    padding: 10px 0;
