@@ -976,7 +976,6 @@ header {
     }
     & h4 {
       font-size: 20px;
-      // padding: 10px;
       @include mq(mm) {
       font-size: 16px;
       }
